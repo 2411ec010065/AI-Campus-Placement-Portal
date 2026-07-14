@@ -12,8 +12,8 @@ public class Student {
 
     private String fullName;
 
-    @Column(unique = true)
-    private String studentid;
+    @Column(name = "studentid", unique = true)
+    private String studentId;
 
     @Column(unique = true)
     private String email;
@@ -51,13 +51,14 @@ public class Student {
         this.fullName = fullName;
     }
 
-    public String getStudentID() {
-        return studentid;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setStudentID(String studentid) {
-        this.studentid = studentid;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
+    
 
     public String getEmail() {
         return email;
