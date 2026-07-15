@@ -21,4 +21,11 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+    public boolean login(String studentId, String password) {
+
+        return studentRepository.findByStudentId(studentId)
+                .map(student -> student.getPassword().equals(password))
+                .orElse(false);
+    }
 }
