@@ -1,0 +1,48 @@
+.profileCard {
+  background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+  color: white;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 25px 45px rgba(76, 29, 149, 0.26);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.profileHeader h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.profileHeader p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.details {
+  display: grid;
+  gap: 10px;
+}
+
+.details div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
