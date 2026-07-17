@@ -1,26 +1,21 @@
-package com.aicampus.placementportal.entity;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+package com.aicampus.placementportal.dto;
 
-@Entity
-@Table(name = "students")
-public class Student {
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class UpdateStudentProfileRequest {
 
     @NotBlank(message = "Full Name is required")
     private String fullName;
 
-    @NotBlank(message = "Student ID is required")
-    @Column(name = "studentid", unique = true)
-    private String studentId;
-
     @NotBlank(message = "Email is required")
     @Email(message = "Enter a valid email address")
-    @Column(unique = true)
     private String email;
 
     @NotBlank(message = "Phone number is required")
@@ -40,24 +35,9 @@ public class Student {
     @DecimalMax(value = "10.0", message = "CGPA cannot be greater than 10")
     private Double cgpa;
 
-    @NotBlank(message = "Password is required")
-    @Size(min = 8, message = "Password must be at least 8 characters")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private String password;
-
-    private String resumePath;
-
     private String skills;
 
-    public Student() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public UpdateStudentProfileRequest() {
     }
 
     public String getFullName() {
@@ -66,14 +46,6 @@ public class Student {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
     }
 
     public String getEmail() {
@@ -114,22 +86,6 @@ public class Student {
 
     public void setCgpa(Double cgpa) {
         this.cgpa = cgpa;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getResumePath() {
-        return resumePath;
-    }
-
-    public void setResumePath(String resumePath) {
-        this.resumePath = resumePath;
     }
 
     public String getSkills() {

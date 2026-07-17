@@ -1,55 +1,19 @@
-package com.aicampus.placementportal.entity;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+package com.aicampus.placementportal.dto;
 
-@Entity
-@Table(name = "students")
-public class Student {
+public class StudentProfileResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "Full Name is required")
     private String fullName;
-
-    @NotBlank(message = "Student ID is required")
-    @Column(name = "studentid", unique = true)
     private String studentId;
-
-    @NotBlank(message = "Email is required")
-    @Email(message = "Enter a valid email address")
-    @Column(unique = true)
     private String email;
-
-    @NotBlank(message = "Phone number is required")
-    @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be exactly 10 digits")
     private String phone;
-
-    @NotBlank(message = "Department is required")
     private String department;
-
-    @NotNull(message = "Year is required")
-    @Min(value = 1, message = "Year must be between 1 and 4")
-    @Max(value = 4, message = "Year must be between 1 and 4")
     private Integer year;
-
-    @NotNull(message = "CGPA is required")
-    @DecimalMin(value = "0.0", message = "CGPA cannot be less than 0")
-    @DecimalMax(value = "10.0", message = "CGPA cannot be greater than 10")
     private Double cgpa;
-
-    @NotBlank(message = "Password is required")
-    @Size(min = 8, message = "Password must be at least 8 characters")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private String password;
-
     private String resumePath;
-
     private String skills;
 
-    public Student() {
+    public StudentProfileResponse() {
     }
 
     public Long getId() {
@@ -114,14 +78,6 @@ public class Student {
 
     public void setCgpa(Double cgpa) {
         this.cgpa = cgpa;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getResumePath() {
